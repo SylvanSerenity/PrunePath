@@ -21,8 +21,11 @@ Note that this is only a filter, meaning **only the full directories as they app
 
 * Symbolic links logically act as normal files but physically are just links to files, meaning the `C:\Refs` reads "0 bytes" when you view its properties.
 * Each PATH entry's subdirectories are recreated with the files linked to prevent applications from having errors if they use shared libraries or files outside of their base directory.
-* The resulting PATH will (hopefully) be much shorter than it was to start, meaning you won't need to use the Registry Editor to change it if you've exceeded to PATH limit.
+* The resulting PATH will potentially be much shorter than it was to start, meaning you won't need to use the Registry Editor to change it if you've exceeded to PATH limit.
 * Administrator rights are required for creating symlinks. Please view the source code to check for fishy business at your pleasure.
+* **Replacing your PATH can be destructive to some applications.** This script will automatically create a backup of your current
+PATH for you, but please be note that some applications use external and relative directories which may cause issues. Try readding
+absolute paths before the symlinks path or reverting to your old PATH if issues arise.
 
 ## How to Use
 
